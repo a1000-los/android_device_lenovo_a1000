@@ -34,19 +34,12 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Wifi
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_2_1_DEVEL
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_sprdwl
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_sprdwl
-BOARD_WLAN_DEVICE           := sc2331
-WIFI_DRIVER_FW_PATH_PARAM   := "/data/misc/wifi/fwpath"
-WIFI_DRIVER_FW_PATH_STA     := "sta_mode"
-WIFI_DRIVER_FW_PATH_P2P     := "p2p_mode"
-WIFI_DRIVER_FW_PATH_AP      := "ap_mode"
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/sprdwl.ko"
-WIFI_DRIVER_MODULE_NAME     := "sprdwl"
-BOARD_HAVE_SAMSUNG_WIFI 	:= true
+BOARD_WLAN_DEVICE                := sprdwl
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_HOSTAPD_DRIVER             := NL80211
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/sprdwl.ko"
+WIFI_DRIVER_MODULE_NAME          := "sprdwl"
 
 ################################################################################
 # Camera
