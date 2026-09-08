@@ -12,22 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/grandprimeve3g
+LOCAL_PATH := device/lenovo/a1000
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Inherit from vendor tree
-$(call inherit-product-if-exists, vendor/samsung/grandprimeve3g/grandprimeve3g-vendor.mk)
+$(call inherit-product-if-exists, vendor/lenovo/a1000/a1000-vendor.mk)
 
 # Inherit from scx30g2-common device configuration
-$(call inherit-product, device/samsung/scx30g2-common/common.mk)
+$(call inherit-product, device/lenovo/scx30g2-common/common.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -54,8 +54,8 @@ PRODUCT_COPY_FILES += \
 	$(foreach f,$(PERMISSIONS_XML_FILES),$(f):system/etc/permissions/$(notdir $(f)))
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_grandprimeve3g
-PRODUCT_DEVICE := grandprimeve3g
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-G531H
+PRODUCT_NAME := full_a1000
+PRODUCT_DEVICE := a1000
+PRODUCT_BRAND := lenovo
+PRODUCT_MANUFACTURER := lenovo
+PRODUCT_MODEL := A1000

@@ -13,20 +13,20 @@
 # limitations under the License.
 
 # Inherit from scx30g2 common configs
--include device/samsung/scx30g2-common/BoardConfigCommon.mk
+-include device/lenovo/scx30g2-common/BoardConfigCommon.mk
 
 # Inherit from the proprietary version
--include vendor/samsung/grandprimeve3g/BoardConfigVendor.mk
+-include vendor/lenovo/a1000/BoardConfigVendor.mk
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := SC7730SE
+TARGET_BOOTLOADER_BOARD_NAME := SC7731G
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 5872025600
-BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
+BOARD_BOOTIMAGE_PARTITION_SIZE := 15728640
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5073010688
+BOARD_CACHEIMAGE_PARTITION_SIZE := 157286400
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -34,20 +34,19 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Wifi
-BOARD_WLAN_DEVICE := bcmdhd
-BOARD_WLAN_DEVICE_REV := bcm4343
-WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
-WIFI_DRIVER_NVRAM_PATH_PARAM := "/sys/module/dhd/parameters/nvram_path"
-WIFI_DRIVER_NVRAM_PATH := "/system/etc/wifi/nvram_net.txt"
-WIFI_BAND := 802_11_ABG
-BOARD_HAVE_SAMSUNG_WIFI := true
+WPA_SUPPLICANT_VERSION      := VER_2_1_DEVEL
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_sprdwl
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_sprdwl
+BOARD_WLAN_DEVICE           := sc2331
+WIFI_DRIVER_FW_PATH_PARAM   := "/data/misc/wifi/fwpath"
+WIFI_DRIVER_FW_PATH_STA     := "sta_mode"
+WIFI_DRIVER_FW_PATH_P2P     := "p2p_mode"
+WIFI_DRIVER_FW_PATH_AP      := "ap_mode"
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/sprdwl.ko"
+WIFI_DRIVER_MODULE_NAME     := "sprdwl"
+BOARD_HAVE_SAMSUNG_WIFI 	:= true
 
 ################################################################################
 # Camera
@@ -70,8 +69,8 @@ CAMERA_SENSOR_TYPE_BACK := "s5k4h5yc_mipi"
 CAMERA_SENSOR_TYPE_FRONT := "s5k5e3yx_mipi"
 
 # select camera 2M,3M,5M,8M
-CAMERA_SUPPORT_SIZE := 8M
-FRONT_CAMERA_SUPPORT_SIZE := 5M
+CAMERA_SUPPORT_SIZE := 5M
+FRONT_CAMERA_SUPPORT_SIZE := 2M
 TARGET_BOARD_NO_FRONT_SENSOR := false
 TARGET_BOARD_CAMERA_FLASH_CTRL := false
 
@@ -151,13 +150,13 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 ################################################################################
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogen_grandprimeve3g_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/grandprimeve3g
+TARGET_KERNEL_CONFIG := a1000_baton4iks_defconfig
+TARGET_KERNEL_SOURCE := kernel/lenovo/a1000
 TARGET_UPDATED_MALI := true
 
 # Resolution
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := SM-G531H,SM-G531BT,grandprimeve3g,grandprimeve3gdtv,grandprimeve3gub,grandprimeve3gxx,grandprimeve3gdtvvj
+TARGET_OTA_ASSERT_DEVICE := a1000,a1000m
